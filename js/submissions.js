@@ -27,7 +27,7 @@ function showInfo(results) {
 
   var tr = table.insertRow(-1);                   // TABLE ROW.
 
-  var cols = ['Institution', 'Talk Title'];
+  var cols = ['Institution', 'Current Position', 'Talk Title'];
 
   // ADD JSON DATA TO THE TABLE AS ROWS.
   for (var i = 0; i < window.data.length; i++) {

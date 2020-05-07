@@ -82,16 +82,16 @@ tr:hover td {
 #talk_title {
   font-family: 'Quicksand', sans-serif;
   text-transform: uppercase;
-  font-size: 40;
-
+  font-size: 24px;
 }
 
 #talk_speaker {
+  font-family: 'Quicksand', sans-serif;
   font-weight: bold;
-  /* text-transform: uppercase; */
-  font-size: 26;
+  text-transform: uppercase;
+  font-size: 26px;
 }
 
 #talk_abstract {
-  font-size: 16;
+  font-size: 16px;
 }
