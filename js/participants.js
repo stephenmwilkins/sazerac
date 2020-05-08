@@ -20,6 +20,13 @@ function showInfo(results) {
 
   window.data = results.data
 
+
+  $('#header').append('<b>'+window.data.length+'</b> people have registered so far.');
+
+    window.data.sort(function(a, b) {
+      return a['Family Name'] > b['Family Name'];
+  });
+
   // CREATE DYNAMIC TABLE.
   var table = document.createElement("table");
 
@@ -46,6 +53,7 @@ function showInfo(results) {
   // FINALLY ADD THE NEWLY CREATED TABLE WITH JSON DATA TO A CONTAINER.
   var divContainer = document.getElementById("showData");
   divContainer.innerHTML = "";
+
   divContainer.appendChild(table);
 
 }
