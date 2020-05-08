@@ -30,20 +30,35 @@ function showInfo(results) {
   var cols = ['Institution', 'Current Position', 'Talk Title'];
 
   // ADD JSON DATA TO THE TABLE AS ROWS.
-  for (var i = 0; i < window.data.length; i++) {
-      tr = table.insertRow(-1);
-      tr.id = i;
-      d = window.data[i];
-      tr.onclick = showTalk;
-      var tabCell = tr.insertCell(-1);
-      tabCell.innerHTML = '<b>'+d['First Name']+' '+d['Family Name']+'</b>';
 
-      for (var j = 0; j < cols.length; j++) {
-          col = cols[j];
-          var tabCell = tr.insertCell(-1);
-          tabCell.innerHTML = window.data[i][col];
+  var k = 0;
+
+  for (var i = 0; i < window.data.length; i++) {
+
+      d = window.data[i];
+
+      if (d['Talk Title'].length > 5) {
+
+        k += 1;
+
+        tr = table.insertRow(-1);
+        tr.id = i;
+        tr.onclick = showTalk;
+        var tabCell = tr.insertCell(-1);
+        tabCell.innerHTML = '<b>'+d['First Name']+' '+d['Family Name']+'</b>';
+
+        for (var j = 0; j < cols.length; j++) {
+            col = cols[j];
+            var tabCell = tr.insertCell(-1);
+            tabCell.innerHTML = window.data[i][col];
+        }
+
       }
+
   }
+
+  $('#header').append('<b>'+window.data.length+'</b> people have registered so far.<br>');
+  $('#header').append('<b>'+k+'</b> people have submitted abstracts so far.');
 
   // FINALLY ADD THE NEWLY CREATED TABLE WITH JSON DATA TO A CONTAINER.
   var divContainer = document.getElementById("showData");
