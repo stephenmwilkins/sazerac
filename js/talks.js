@@ -95,7 +95,6 @@ function showInfo() {
         tabCell.innerHTML = d['Institution'];
 
         var tabCell = tr.insertCell(-1);
-        // tabCell.style = 'tooltip';
         tabCell.innerHTML = '<div class="tooltip">'+d['Title'] + '<span class="tooltiptext"><b>' + d['Tags']+ '</b><br>' + d['Abstract']+'</span></div>';
 
       }
@@ -116,15 +115,11 @@ function showTalk() {
 
   var d = window.data[i];
 
-  // history.pushState(null, null, 'index.html?talk='+String(i));
-
-
+  console.log(d);
 
   YT = d['YouTube link'].split('/');
-  console.log(YT);
 
   $("#talk_window").html('<div id="videoWrapper"><iframe src="https://www.youtube.com/embed/'+YT[YT.length - 1]+'" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>');
-
 
   $("#talk_window").append('<div id="talk_close" onclick="close_talk();"><img width="30px" src="images/close.png"></div>');
   // document.getElementById("talk_window").innerHTML += '<div id="talk_close" onclick="close_talk();"><img width="30px" src="images/close.png"></div>';
@@ -132,6 +127,12 @@ function showTalk() {
   $("#talk_speaker").html(d['First Name']+' '+d['Family Name']);
   $("#talk_title").html(d['Title']);
   $("#talk_abstract").html(d['Abstract']);
+
+  if (d['Copy of slide'].length > 5) {
+    $("#talk_slides").html('<a href="'+d['Copy of slide']+'">Download Slides</a>');
+  } else {
+    $("#talk_slides").html('');
+  }
 
 
   $("#talk_background").css("display", "block");
