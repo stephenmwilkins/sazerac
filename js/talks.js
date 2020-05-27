@@ -5,7 +5,14 @@
 var public_spreadsheet_url = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQzuvYTA1U4H94gWcxZSQzWGXuKTeoeEJx2sm8AJOI_wa-rctxhN6FRxt6d9SDDKAXmH6Tj9rHoQvsH/pub?gid=1202228213&single=true&output=csv';
 
 
-var tags = ['Lensed Galaxies', 'Dusty Galaxies', 'LBGs', 'LAEs', 'Simulations', 'Deep Field Observations', 'Wide Field Observations', '21cm Observations', 'Low-z Analogues'];
+var tag_groups = ['processes', 'galaxy_types', 'galaxy_sub_types', 'techniques'];
+var processes = ['Reionisation', 'Star formation', 'Dark ages', 'Enrichment'];
+var galaxy_types = ['Dusty galaxies', 'LBGs', 'LAEs', 'Analogues', 'AGN'];
+var galaxy_sub_types = ['Pop III stars', 'Stellar pops', 'BHs', 'HII regions', 'ISM', 'CGM', 'IGM'];
+var techniques = ['Simulations', 'Wide Fields', 'Deep Fields', 'Lensed', 'Spectroscopy', 'Imaging', 'IFU', 'X-ray', 'UV', 'Optical', 'IR', 'Radio','Forecasts'];
+
+
+var tags = processes.concat(galaxy_types, galaxy_sub_types, techniques);
 var tag_state = {};
 
 function init() {
@@ -21,14 +28,18 @@ window.addEventListener('DOMContentLoaded', init)
 
 
 function make_tag_list() {
-  for (i=0; i<tags.length; i++) {
-    tag_id = tags[i];
-    var tag = document.createElement("li");
-    tag.className = 'tag';
-    tag.innerHTML = '<label><input class="checkbox" type="checkbox" id="'+tag_id+'" name="'+tag_id+'" checked=true> &nbsp;'+tag_id+'</label>'
-    $("#tag_list").append(tag);
-    tag_state[tag_id] = true;
-    console.log(tag_id, tag_state[tag_id])
+
+for (j=0; j<tag_groups.length; j++) {
+    tag_group = window[tag_groups[j]]
+    for (i=0; i<tag_group.length; i++) {
+      tag_id = tag_group[i];
+      var tag = document.createElement("li");
+      tag.className = 'tag';
+      tag.innerHTML = '<label><input class="checkbox" type="checkbox" id="'+tag_id+'" name="'+tag_id+'" checked=true> &nbsp;'+tag_id+'</label>'
+      $("#"+tag_groups[j]+"_tag_list").append(tag);
+      tag_state[tag_id] = true;
+      console.log(tag_id, tag_state[tag_id])
+    }
   }
 }
 
@@ -41,6 +52,23 @@ $(document).ready(function() {
   $(".checkbox").change(function() {
     tag_state[this.id] = this.checked;
     console.log(tag_state);
+    showInfo();
+  });
+
+
+  $("#check_all").click(function() {
+    $('.checkbox').prop('checked', true);
+    for (i=0;i<tags.length;i++) {
+      tag_state[tags[i]] = true;
+    }
+    showInfo();
+  });
+
+  $("#check_none").click(function() {
+    $('.checkbox').prop('checked', false);
+    for (i=0;i<tags.length;i++) {
+      tag_state[tags[i]] = false;
+    }
     showInfo();
   });
 
