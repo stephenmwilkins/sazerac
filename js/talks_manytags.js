@@ -2,12 +2,20 @@
 
 
 
-var public_spreadsheet_url = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vSfUcP-I-xJxSmu2a23zMlT4v9blZsvpiqz6Up6JK0uZIEniUYTUwbOxocht-04XWhS3Xn9PyvfCpoh/pub?gid=471561340&single=true&output=csv';
+var public_spreadsheet_url = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQzuvYTA1U4H94gWcxZSQzWGXuKTeoeEJx2sm8AJOI_wa-rctxhN6FRxt6d9SDDKAXmH6Tj9rHoQvsH/pub?gid=1202228213&single=true&output=csv';
 
 
-var tags = ['Analogues','Reionization','Dark ages','First stars','AGN','Star formation histories','Metal/dust enrichment','Escape fractions','Theory','Observations','Tools','Outreach, education, and diversity','Other'];
 
+var tag_groups = ['processes', 'galaxy_types', 'components', 'observations', 'wavelengths', 'theory', 'misc'];
+var processes = ['Reionisation', 'Star formation', 'Dark ages', 'Enrichment', 'Escape fractions'];
+var galaxy_types = ['AGN', 'Dusty galaxies', 'LBGs', 'LAEs', 'DLAs', 'Analogues'];
+var components = ['Pop III stars', 'Stellar pops', 'BHs', 'HII regions', 'ISM', 'CGM', 'IGM'];
+var observations = ['Wide Fields', 'Deep Fields', 'Ground', 'Space', 'Lensed', 'Imaging', 'Spectroscopy', 'IFU', 'Tools'];
+var wavelengths = ['X-ray', 'UV', 'Optical', 'IR', 'Radio'];
+var theory = ['Analytical', 'SAMs', 'Hydro', 'RT'];
+var misc = ['Outreach', 'Diversity', 'Other'];
 
+var tags = processes.concat(galaxy_types, components, observations, wavelengths, theory, misc);
 var tag_state = {};
 
 function init() {
@@ -24,17 +32,19 @@ window.addEventListener('DOMContentLoaded', init)
 
 function make_tag_list() {
 
-  for (i=0; i<tags.length; i++) {
-    tag_id = tags[i];
-    var tag = document.createElement("li");
-    tag.className = 'tag';
-    tag.innerHTML = '<label><input class="checkbox" type="checkbox" id="'+tag_id+'" name="'+tag_id+'" checked=true> &nbsp;'+tag_id+'</label>'
-    $("#tag_list").append(tag);
-    tag_state[tag_id] = true;
-    console.log(tag_id, tag_state[tag_id])
+for (j=0; j<tag_groups.length; j++) {
+    tag_group = window[tag_groups[j]]
+    for (i=0; i<tag_group.length; i++) {
+      tag_id = tag_group[i];
+      var tag = document.createElement("li");
+      tag.className = 'tag';
+      tag.innerHTML = '<label><input class="checkbox" type="checkbox" id="'+tag_id+'" name="'+tag_id+'" checked=true> &nbsp;'+tag_id+'</label>'
+      $("#"+tag_groups[j]+"_tag_list").append(tag);
+      tag_state[tag_id] = true;
+      console.log(tag_id, tag_state[tag_id])
+    }
   }
 }
-
 
 
 window.addEventListener('DOMContentLoaded', make_tag_list)
@@ -51,7 +61,6 @@ $(document).ready(function() {
 
   $("#check_all").click(function() {
     $('.checkbox').prop('checked', true);
-    console.log('here');
     for (i=0;i<tags.length;i++) {
       tag_state[tags[i]] = true;
     }
@@ -60,7 +69,6 @@ $(document).ready(function() {
 
   $("#check_none").click(function() {
     $('.checkbox').prop('checked', false);
-    console.log('here');
     for (i=0;i<tags.length;i++) {
       tag_state[tags[i]] = false;
     }

@@ -82,6 +82,7 @@ for i,g in enumerate(Genders):
         a[k]['unknown'] += 1
 a[k]['total'] =  a[k]['male'] + a[k]['female'] + a[k]['unknown']
 
+print(a[k])
 
 
 # --------------------------- plot

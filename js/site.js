@@ -25,7 +25,7 @@ $(document).ready(function() {
     $window.on('resize', resize)
     $popoverLink.on('click', openPopover)
     $document.on('click', closePopover)
-    $('a[href^="#"]').on('click', smoothScroll)
+    // $('a[href^="#"]').on('click', smoothScroll)
     buildSnippets();
   }
 
