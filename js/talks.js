@@ -7,7 +7,7 @@ var public_spreadsheet_url = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQ
 
 var tag_groups = ['processes', 'galaxy_types', 'components', 'observations', 'wavelengths', 'theory', 'misc'];
 var processes = ['Reionisation', 'Star formation', 'Dark ages', 'Enrichment', 'Escape fractions'];
-var galaxy_types = ['Dusty galaxies', 'LBGs', 'LAEs', 'Analogues', 'AGN'];
+var galaxy_types = ['AGN', 'Dusty galaxies', 'LBGs', 'LAEs', 'DLAs', 'Analogues'];
 var components = ['Pop III stars', 'Stellar pops', 'BHs', 'HII regions', 'ISM', 'CGM', 'IGM'];
 var observations = ['Wide Fields', 'Deep Fields', 'Ground', 'Space', 'Lensed', 'Imaging', 'Spectroscopy', 'IFU', 'Tools'];
 var wavelengths = ['X-ray', 'UV', 'Optical', 'IR', 'Radio'];
