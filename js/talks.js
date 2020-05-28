@@ -5,14 +5,16 @@
 var public_spreadsheet_url = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQzuvYTA1U4H94gWcxZSQzWGXuKTeoeEJx2sm8AJOI_wa-rctxhN6FRxt6d9SDDKAXmH6Tj9rHoQvsH/pub?gid=1202228213&single=true&output=csv';
 
 
-var tag_groups = ['processes', 'galaxy_types', 'galaxy_sub_types', 'techniques'];
-var processes = ['Reionisation', 'Star formation', 'Dark ages', 'Enrichment'];
+var tag_groups = ['processes', 'galaxy_types', 'components', 'observations', 'wavelengths', 'theory', 'misc'];
+var processes = ['Reionisation', 'Star formation', 'Dark ages', 'Enrichment', 'Escape fractions'];
 var galaxy_types = ['Dusty galaxies', 'LBGs', 'LAEs', 'Analogues', 'AGN'];
-var galaxy_sub_types = ['Pop III stars', 'Stellar pops', 'BHs', 'HII regions', 'ISM', 'CGM', 'IGM'];
-var techniques = ['Simulations', 'Wide Fields', 'Deep Fields', 'Lensed', 'Spectroscopy', 'Imaging', 'IFU', 'X-ray', 'UV', 'Optical', 'IR', 'Radio','Forecasts'];
+var components = ['Pop III stars', 'Stellar pops', 'BHs', 'HII regions', 'ISM', 'CGM', 'IGM'];
+var observations = ['Wide Fields', 'Deep Fields', 'Ground', 'Space', 'Lensed', 'Imaging', 'Spectroscopy', 'IFU', 'Tools'];
+var wavelengths = ['X-ray', 'UV', 'Optical', 'IR', 'Radio'];
+var theory = ['Analytical', 'SAMs', 'Hydro', 'RT'];
+var misc = ['Outreach', 'Diversity', 'Other'];
 
-
-var tags = processes.concat(galaxy_types, galaxy_sub_types, techniques);
+var tags = processes.concat(galaxy_types, components, observations, wavelengths, theory, misc);
 var tag_state = {};
 
 function init() {
