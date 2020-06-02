@@ -66,10 +66,16 @@ a[k]['total'] =  a[k]['male'] + a[k]['female'] + a[k]['unknown']
 # ---------------------------
 
 
+url = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vS4MXIrWOQ3jwUhJz2jwgbwDs5iBY8Rz6p-VZeTzlLfJ8Fpu6Ud0lmTG0dJS5jw3NRbkPTPpnHWr0Px/pub?gid=475029946&single=true&output=csv'
+
+req = requests.get(url)
+data = ascii.read(req.text, format='csv', fast_reader=False)
+FirstNames = np.array(data['First Name'])
+
 k = 'Selected for live talk'
 
 a[k] = {'male': 0., 'unknown': 0., 'female': 0.}
-Genders = np.array([gender_dict[name] for name in FirstNames[:60]])
+Genders = np.array([gender_dict[name] for name in FirstNames])
 for i,g in enumerate(Genders):
     print(i, FirstNames[i], g)
     if g[0] == 'male':

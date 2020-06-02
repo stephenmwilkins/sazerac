@@ -1,8 +1,12 @@
 
 
+function pad(n, width, z) {
+  z = z || '0';
+  n = n + '';
+  return n.length >= width ? n : new Array(width - n.length + 1).join(z) + n;
+}
 
-
-var public_spreadsheet_url = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vSfUcP-I-xJxSmu2a23zMlT4v9blZsvpiqz6Up6JK0uZIEniUYTUwbOxocht-04XWhS3Xn9PyvfCpoh/pub?gid=471561340&single=true&output=csv';
+var public_spreadsheet_url = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTeq8khkfizcAYSLG5QiHDaiiiFBY9zjEmUCPyHkb4jR3iz40hpQUKm3wX0lHoylW4Oi7kwXIWgi4xS/pub?gid=833763484&single=true&output=csv';
 
 
 var tags = ['Analogues','Reionization','Dark ages','First stars','AGN','Star formation histories','Metal/dust enrichment','Escape fractions','Theory','Observations','Tools','Outreach and diversity','Other'];
@@ -11,8 +15,6 @@ var tags = ['Analogues','Reionization','Dark ages','First stars','AGN','Star for
 var tag_state = {};
 
 function init() {
-
-  document.getElementById('talk_background').onclick = close_talk;
 
   Papa.parse(public_spreadsheet_url, {
     download: true,
@@ -87,6 +89,8 @@ function showInfo() {
   // CREATE DYNAMIC TABLE.
   var table = document.createElement("table");
 
+
+
   // CREATE HTML TABLE HEADER ROW USING THE EXTRACTED HEADERS ABOVE.
 
   for (var j = 0; j < window.data.length; j++) {
@@ -112,13 +116,30 @@ function showInfo() {
 
         tr = table.insertRow(-1);
         tr.id = j;
-        tr.onclick = showTalk;
+
+
+        var time_zones = ['PDT','MDT','CDT','EDT','BST','CEST','CST','AWST','JST','AEST'];
+        var offsets = [-7,-6,-5,-4,1,2,8,8,9,10];
+
+        time_list = '';
+
+        for (var k=0; k<time_zones.length; k++) {
+          time = parseInt(d['Time'])+offsets[k]*100;
+          if (time>=2400) {
+            time = time - 2400;
+            time = pad(time, 4)+'+1';
+          } else {
+            time = pad(time, 4);
+          }
+          time_list += '<b>'+time_zones[k]+': </b>'+time+'<br>';
+        }
+
 
         var tabCell = tr.insertCell(-1);
-        tabCell.innerHTML = '<b>'+d['First Name']+' '+d['Family Name']+'</b>';
+        tabCell.innerHTML = '<div class="tooltip"><b>'+d['Session']+'/'+d['Talk']+'</b> ('+d['Date']+' '+d['Time']+')<span class="tooltiptext" style="width:100px;">'+time_list+'</span></div>';
 
         var tabCell = tr.insertCell(-1);
-        tabCell.innerHTML = d['Institution'];
+        tabCell.innerHTML = '<div class="tooltip"><b>'+d['First Name']+' '+d['Family Name']+ '<span class="tooltiptext" style="width:300px;">'+ d['Institution']+'<br><a href="mailto:'+d['Email']+'">'+d['Email']+'</a></span></div>';
 
         var tabCell = tr.insertCell(-1);
         tabCell.innerHTML = '<div class="tooltip">'+d['Title'] + '<span class="tooltiptext"><b>' + d['Tags']+ '</b><br>' + d['Abstract']+'</span></div>';
@@ -133,51 +154,3 @@ function showInfo() {
   divContainer.appendChild(table);
 
 }
-
-
-function showTalk() {
-
-  i = parseInt(this.id);
-
-  var d = window.data[i];
-
-  if (d['YouTube link'].split('=').length>1) {
-    YT = d['YouTube link'].split('=');
-  } else {
-    YT = d['YouTube link'].split('/');
-  }
-
-  $("#talk_window").html('<div id="videoWrapper"><iframe src="https://www.youtube.com/embed/'+YT[YT.length - 1]+'" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>');
-
-  $("#talk_window").append('<div id="talk_close" onclick="close_talk();"><img width="30px" src="images/close.png"></div>');
-  // document.getElementById("talk_window").innerHTML += '<div id="talk_close" onclick="close_talk();"><img width="30px" src="images/close.png"></div>';
-
-  $("#talk_speaker").html(d['First Name']+' '+d['Family Name']);
-  $("#talk_title").html(d['Title']);
-  $("#talk_abstract").html(d['Abstract']);
-
-  if (d['Talk slides (optional, PDF only)'].length > 5) {
-    $("#talk_slides").html('<a href="'+d['Talk slides (optional, PDF only)']+'">Download Slides</a>');
-  } else {
-    $("#talk_slides").html('');
-  }
-
-
-  $("#talk_background").css("display", "block");
-  $("#talk_container").css("display", "block");
-  $(window).scrollTop(0);
-
-
-}
-
-
-function close_talk() {
-  $("#talk_window").html('');
-  $("#talk_background").css("display", "none");
-  $("#talk_container").css("display", "none");
-}
-
-
-
-
-window.addEventListener('DOMContentLoaded', init)
