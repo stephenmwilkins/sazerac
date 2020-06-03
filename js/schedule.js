@@ -134,6 +134,7 @@ function showInfo() {
 
 
   var previous_session = 0;
+  var previous_talk = 0;
 
   for (var j = 0; j < window.data.length; j++) {
 
@@ -143,7 +144,8 @@ function showInfo() {
 
       var talk_tags = d['Tags'].split(",");
 
-      var session = parseInt(d['Session'][0])
+      var session = parseInt(d['Session'][0]);
+      var talk = parseInt(d['Talk']);
 
       for (var i=0; i<talk_tags.length; i++) {
         if (tag_state[talk_tags[i].trim()]) {
@@ -160,6 +162,13 @@ function showInfo() {
             var tabCell = tr.insertCell(-1);
             tabCell.colSpan = 3;
             tabCell.innerHTML = '<span style="font-size:25pt;color:#888;"><b>SESSION '+session+'</b></span>';
+          }
+
+          if (talk==1 && previous_talk==6) {
+            tr = table.insertRow(-1);
+            var tabCell = tr.insertCell(-1);
+            tabCell.colSpan = 3;
+            tabCell.innerHTML = '<span style="font-size:20pt;color:#AAA;"><b>COFFEE BREAK</b></span>';
           }
 
           tr = table.insertRow(-1);
@@ -189,6 +198,7 @@ function showInfo() {
           tabCell.innerHTML = '<div class="tooltip">'+d['Title'] + '<span class="tooltiptext"><b>' + d['Tags']+ '</b><br>' + d['Abstract']+'</span></div>';
 
           previous_session = session;
+          previous_talk = talk;
 
         }
 
