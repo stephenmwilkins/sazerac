@@ -8,12 +8,11 @@ import pickle
 
 gender_dict = pickle.load(open('gender.pck','rb'))
 
-gender_dict['Ciaran'] = ('male', 1.)
+# gender_dict['Ciaran'] = ('male', 1.)
 
 a = {}
 a['SOC'] = {'male': 7, 'unknown': 0, 'female': 6}
 a['SOC']['total'] =  a['SOC']['male'] + a['SOC']['female'] + a['SOC']['unknown']
-
 
 
 
@@ -61,49 +60,6 @@ for g in Genders:
 a[k]['total'] =  a[k]['male'] + a[k]['female'] + a[k]['unknown']
 
 
-
-
-
-url = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vS4MXIrWOQ3jwUhJz2jwgbwDs5iBY8Rz6p-VZeTzlLfJ8Fpu6Ud0lmTG0dJS5jw3NRbkPTPpnHWr0Px/pub?gid=0&single=true&output=csv'
-
-req = requests.get(url)
-data = ascii.read(req.text, format='csv', fast_reader=False)
-FirstNames = np.array(data['First Name'])
-
-
-k = 'Eligible for live talk'
-
-a[k] = {'male': 0., 'unknown': 0., 'female': 0.}
-Genders = np.array([gender_dict[name] for name in FirstNames])
-for g in Genders:
-    if g[0] == 'male':
-        a[k]['male'] += float(g[1])
-        a[k]['female'] += 1-float(g[1])
-    if g[0] == 'female':
-        a[k]['female'] += float(g[1])
-        a[k]['male'] += 1-float(g[1])
-    if g[0] == 'unknown':
-        a[k]['unknown'] += 1
-a[k]['total'] =  a[k]['male'] + a[k]['female'] + a[k]['unknown']
-
-
-# ---------------------------
-
-
-k = 'Selected for live talk'
-
-a[k] = {'male': 0., 'unknown': 0., 'female': 0.}
-Genders = np.array([gender_dict[name] for name in FirstNames[:60]])
-for g in Genders:
-    if g[0] == 'male':
-        a[k]['male'] += float(g[1])
-        a[k]['female'] += 1-float(g[1])
-    if g[0] == 'female':
-        a[k]['female'] += float(g[1])
-        a[k]['male'] += 1-float(g[1])
-    if g[0] == 'unknown':
-        a[k]['unknown'] += 1
-a[k]['total'] =  a[k]['male'] + a[k]['female'] + a[k]['unknown']
 
 
 
@@ -175,7 +131,7 @@ ax2.set_xlim([-bar_width/2, len(positions)-1 + bar_width/2])
 
 ax2.set_xticks([])
 ax2.axvline(0.5, c='k', alpha=1, lw=1)
-ax2.set_ylim([0, 499.99])
+ax2.set_ylim([0, 599.99])
 
 ax.legend(bbox_to_anchor=(1.05, 1), loc='upper left', borderaxespad=0., fontsize = 8)
 ax.set_ylabel('Percentage')
