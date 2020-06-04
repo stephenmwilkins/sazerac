@@ -162,13 +162,13 @@ function showInfo() {
             var tabCell = tr.insertCell(-1);
             tabCell.colSpan = 3;
             tabCell.innerHTML = '<span style="font-size:25pt;color:#888;"><b>SESSION '+session+'</b></span>';
-          }
-
-          if (talk==1 && previous_talk==6) {
-            tr = table.insertRow(-1);
-            var tabCell = tr.insertCell(-1);
-            tabCell.colSpan = 3;
-            tabCell.innerHTML = '<span style="font-size:20pt;color:#AAA;"><b>COFFEE BREAK</b></span>';
+          } else {
+            if (talk==1 && previous_talk==6) {
+              tr = table.insertRow(-1);
+              var tabCell = tr.insertCell(-1);
+              tabCell.colSpan = 3;
+              tabCell.innerHTML = '<span style="font-size:20pt;color:#AAA;"><b>COFFEE/DISCUSSION BREAK</b></span>';
+            }
           }
 
           tr = table.insertRow(-1);
