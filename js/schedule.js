@@ -191,6 +191,10 @@ function showInfo() {
           }
 
 
+          var abstract = d['Abstract']
+          abstract = abstract.replace(/</g, "&lt;");
+          abstract = abstract.replace(/>/g, "&gt;");
+
           var tabCell = tr.insertCell(-1);
           tabCell.innerHTML = '<div class="tooltip"><b>'+d['Session']+'/'+d['Talk']+'</b> '+d['Date']+' '+d['Time']+'<span class="tooltiptext" style="width:100px;">'+time_list+'</span></div>';
 
@@ -198,7 +202,7 @@ function showInfo() {
           tabCell.innerHTML = '<div class="tooltip"><b>'+d['First Name']+' '+d['Family Name']+ '<span class="tooltiptext" style="width:300px;">'+ d['Institution']+'<br><a href="mailto:'+d['Email']+'">'+d['Email']+'</a></span></div>';
 
           var tabCell = tr.insertCell(-1);
-          tabCell.innerHTML = '<div class="tooltip">'+d['Title'] + '<span class="tooltiptext"><b>' + d['Tags']+ '</b><br>' + d['Abstract']+'</span></div>';
+          tabCell.innerHTML = '<div class="tooltip">'+d['Title'] + '<span class="tooltiptext"><b>' + d['Tags']+ '</b><br>' + abstract +'</span></div>';
 
           previous_session = session;
           previous_talk = talk;
