@@ -2,9 +2,7 @@
 
 
 
-var public_spreadsheet_url = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vSfUcP-I-xJxSmu2a23zMlT4v9blZsvpiqz6Up6JK0uZIEniUYTUwbOxocht-04XWhS3Xn9PyvfCpoh/pub?gid=471561340&single=true&output=csv';
-
-
+var public_spreadsheet_url = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vSfUcP-I-xJxSmu2a23zMlT4v9blZsvpiqz6Up6JK0uZIEniUYTUwbOxocht-04XWhS3Xn9PyvfCpoh/pub?gid=471561340&single=true&output=csv'
 
 var tags = ['Analogues','Reionization','Dark ages','First stars','AGN','Star formation histories','Metal/dust enrichment','Escape fractions','Theory','Observations','Tools','Outreach and diversity','Other'];
 

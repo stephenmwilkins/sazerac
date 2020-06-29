@@ -9,6 +9,8 @@ function pad(n, width, z) {
 
 // var public_spreadsheet_url = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQR_UCg18peMVzHd8e8kSIYrgxJTlEzhHtyrdhxH5LmvaUhdGtplKx0-HVUk1DPkL2ZZqIDtA1cChMI/pub?gid=1602493998&single=true&output=csv';
 
+var public_spreadsheet_url = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQ5qMlKaVg8S6FXZnCV6Do-sQajewZkVPDzr5iy7IXLFmjehVWyvUmevbv6CzhqBSgOLFie8etMcjzo/pub?gid=1602493998&single=true&output=csv'
+
 var csvfile = 'data/schedule.csv'
 
 
@@ -126,7 +128,7 @@ function saveData(results) {
 
 function showInfo() {
 
-  // console.log(window.data);
+  console.log(window.data);
 
   // CREATE DYNAMIC TABLE.
   var table = document.createElement("table");
@@ -141,11 +143,7 @@ function showInfo() {
 
   for (var j = 0; j < window.data.length; j++) {
 
-
-
       d = window.data[j];
-
-      console.log(d);
 
       var inc = false;
 
