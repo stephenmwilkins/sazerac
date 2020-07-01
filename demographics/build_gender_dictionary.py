@@ -36,18 +36,21 @@ def get_gender(name):
 url = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQFJ9Rl-4lZ1gwFdV6KGmL7p7XT1KS84o5gd4njT0S5KhHk-zEW8dgESj6F2zQu-qopYqAsJ5GAkUIH/pub?gid=1488898563&single=true&output=csv'
 
 
-
 gender = {}
-
 req = requests.get(url)
+
 data = ascii.read(req.text, format='csv', fast_reader=False)
 FirstNames = data['First Name']
 
 print(len(FirstNames))
 print(len(set(FirstNames)))
 
+
+gender = pickle.load(open('gender.pck','rb'))
+
 for name in FirstNames:
-    gender[name] = get_gender(name)
+    if name not in list(gender.keys()):
+        gender[name] = get_gender(name)
 
 
 pickle.dump(gender, open('gender.pck','wb'))
