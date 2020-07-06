@@ -4,10 +4,6 @@
 
 
 
-var public_spreadsheet_url = 'https://cors-anywhere.herokuapp.com/https://docs.google.com/spreadsheets/d/e/2PACX-1vSfUcP-I-xJxSmu2a23zMlT4v9blZsvpiqz6Up6JK0uZIEniUYTUwbOxocht-04XWhS3Xn9PyvfCpoh/pub?gid=471561340&single=true&output=csv'
-
-
-
 var tags = ['Analogues','Reionization','Dark ages','First stars','AGN','Star formation histories','Metal/dust enrichment','Escape fractions','Theory','Observations','Tools','Outreach and diversity','Other'];
 
 
@@ -17,7 +13,7 @@ function init() {
 
   document.getElementById('talk_background').onclick = close_talk;
 
-  Papa.parse(public_spreadsheet_url, {
+  Papa.parse('data/recorded.csv', {
     download: true,
     header: true,
     complete: saveData
@@ -50,14 +46,13 @@ $(document).ready(function() {
 
   $(".checkbox").change(function() {
     tag_state[this.id] = this.checked;
-    console.log(tag_state);
     showInfo();
   });
 
 
   $("#check_all").click(function() {
     $('.checkbox').prop('checked', true);
-    console.log('here');
+
     for (i=0;i<tags.length;i++) {
       tag_state[tags[i]] = true;
     }
@@ -66,7 +61,6 @@ $(document).ready(function() {
 
   $("#check_none").click(function() {
     $('.checkbox').prop('checked', false);
-    console.log('here');
     for (i=0;i<tags.length;i++) {
       tag_state[tags[i]] = false;
     }
@@ -100,11 +94,7 @@ function showInfo() {
 
       var talk_tags = d['Tags'].split(",");
 
-      console.log(talk_tags);
-
       for (var i=0; i<talk_tags.length; i++) {
-
-        console.log(talk_tags[i], tag_state[talk_tags[i].trim()]);
         if (tag_state[talk_tags[i].trim()]) {
           inc = true;
         }
