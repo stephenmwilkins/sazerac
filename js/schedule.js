@@ -207,7 +207,7 @@ function showInfo() {
 
           prerecording = '';
           if (recorded=='Yes') {
-            prerecording = ' <b>[Recorded]</b>';
+            prerecording = ' <b><a href="'+d['YouTube']+'">[Recorded]</a></b>';
           }
 
           var tabCell = tr.insertCell(-1);
