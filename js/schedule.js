@@ -205,13 +205,23 @@ function showInfo() {
           var tabCell = tr.insertCell(-1);
           tabCell.innerHTML = '<div class="tooltip"><b>'+d['First Name']+' '+d['Family Name']+ '<span class="tooltiptext" style="width:300px;">'+ d['Institution']+'<br><a href="mailto:'+d['Email']+'">'+d['Email']+'</a></span></div>';
 
-          prerecording = '';
-          if (recorded=='Yes') {
-            prerecording = ' <b><a href="'+d['YouTube']+'">[Recorded]</a></b>';
-          }
+          var tabCell = tr.insertCell(-1);
+          tabCell.innerHTML = '<div class="tooltip">'+d['Title'] + '<span class="tooltiptext"><b>' + d['Tags']+ '</b><br>' + abstract +'</span></div>';
 
           var tabCell = tr.insertCell(-1);
-          tabCell.innerHTML = '<div class="tooltip">'+d['Title'] +prerecording+ '<span class="tooltiptext"><b>' + d['Tags']+ '</b><br>' + abstract +'</span></div>';
+
+
+          recording = '';
+          if (recorded=='Yes') {
+            recording = ' <b><a href="'+d['YouTube']+'">[Recorded]</a></b>';
+          }
+
+          console.log(d['YouTube']);
+          if (d['YouTube']!='') {
+            recording = ' <b><a href="'+d['YouTube']+'">[Recording]</a></b>';
+          }
+
+          tabCell.innerHTML = recording
 
           previous_session = session;
           previous_talk = talk;
