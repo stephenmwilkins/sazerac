@@ -1,7 +1,24 @@
 
 
 
+function shuffle(array) {
+  var currentIndex = array.length, temporaryValue, randomIndex;
 
+  // While there remain elements to shuffle...
+  while (0 !== currentIndex) {
+
+    // Pick a remaining element...
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex -= 1;
+
+    // And swap it with the current element.
+    temporaryValue = array[currentIndex];
+    array[currentIndex] = array[randomIndex];
+    array[randomIndex] = temporaryValue;
+  }
+
+  return array;
+}
 
 
 var tags = ['Analogues','Reionization','Dark ages','First stars','AGN','Star formation histories','Metal/dust enrichment','Escape fractions','Theory','Observations','Tools','Outreach and diversity','Other'];
@@ -71,7 +88,7 @@ $(document).ready(function() {
 
 
 function saveData(results) {
-    window.data = results.data
+    window.data = shuffle(results.data)
     showInfo();
 }
 
@@ -113,8 +130,12 @@ function showInfo() {
         var tabCell = tr.insertCell(-1);
         tabCell.innerHTML = d['Institution'];
 
+        var abstract = d['Abstract']
+        abstract = abstract.replace(/</g, "&lt;");
+        abstract = abstract.replace(/>/g, "&gt;");
+
         var tabCell = tr.insertCell(-1);
-        tabCell.innerHTML = '<div class="tooltip">'+d['Title'] + '<span class="tooltiptext"><b>' + d['Tags']+ '</b><br>' + d['Abstract']+'</span></div>';
+        tabCell.innerHTML = '<div class="tooltip">'+d['Title'] + '<span class="tooltiptext"><b>' + d['Tags']+ '</b><br>' + abstract+'</span></div>';
 
       }
 
@@ -132,7 +153,13 @@ function showTalk() {
 
   i = parseInt(this.id);
 
+
+
   var d = window.data[i];
+
+  var abstract = d['Abstract']
+  abstract = abstract.replace(/</g, "&lt;");
+  abstract = abstract.replace(/>/g, "&gt;");
 
   if (d['YouTube link'].split('=').length>1) {
     YT = d['YouTube link'].split('=');
@@ -147,7 +174,7 @@ function showTalk() {
 
   $("#talk_speaker").html(d['First Name']+' '+d['Family Name']);
   $("#talk_title").html(d['Title']);
-  $("#talk_abstract").html(d['Abstract']);
+  $("#talk_abstract").html(abstract);
 
   if (d['Talk slides (optional, PDF only)'].length > 5) {
     $("#talk_slides").html('<a href="'+d['Talk slides (optional, PDF only)']+'">Download Slides</a>');
