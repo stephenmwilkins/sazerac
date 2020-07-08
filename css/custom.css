@@ -1,5 +1,24 @@
 
 
+/* Container holding the image and the text */
+.banner_container {
+  position: relative;
+  text-align: center;
+  color: white;
+}
+
+/* Centered text */
+.banner_text {
+  position: absolute;
+  top: 50%;
+  left: 1%;
+  transform: translate(0, -50%);
+  color: #FFF;
+  font-family: 'Vidaloka', serif;
+  font-size: 100px;
+}
+
+
 
 .red {
     color:red;
