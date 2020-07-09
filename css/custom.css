@@ -19,6 +19,22 @@
 }
 
 
+.title {
+  font-family: 'Vidaloka', serif;
+  font-size: 80px;
+}
+
+div.title {
+  height: 160px;
+  display: flex;
+  align-items: center }
+div.title p {
+  font-family: 'Vidaloka', serif;
+  font-size: 120px;
+  margin: 0 }
+
+
+
 
 .red {
     color:red;

@@ -125,10 +125,7 @@ function showInfo() {
         tr.onclick = showTalk;
 
         var tabCell = tr.insertCell(-1);
-        tabCell.innerHTML = '<b>'+d['First Name']+' '+d['Family Name']+'</b>';
-
-        var tabCell = tr.insertCell(-1);
-        tabCell.innerHTML = d['Institution'];
+        tabCell.innerHTML = '<div class="tooltip"><b>'+d['First Name']+' '+d['Family Name']+ '<span class="tooltiptext" style="width:300px;">'+ d['Institution']+'<br><a href="mailto:'+d['Email Address']+'">'+d['Email Address']+'</a></span></div>';
 
         var abstract = d['Abstract']
         abstract = abstract.replace(/</g, "&lt;");
