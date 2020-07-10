@@ -30,7 +30,7 @@ function init() {
 
   document.getElementById('talk_background').onclick = close_talk;
 
-  Papa.parse('data/recorded.csv', {
+  Papa.parse('data/all.csv', {
     download: true,
     header: true,
     complete: saveData
