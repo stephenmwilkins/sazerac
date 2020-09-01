@@ -17,6 +17,8 @@
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;600&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Vidaloka&display=swap" rel="stylesheet">
+
 
   <!-- CSS
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
@@ -48,99 +50,113 @@
     <nav class="navbar">
       <div class="container">
         <ul class="navbar-list">
-          <li class="navbar-item"><a class="navbar-link" href="#about">About</a></li>
-          <li class="navbar-item"><a class="navbar-link" href="#schedule">Schedule</a></li>
-          <li class="navbar-item"><a class="navbar-link" href="#registration">Registration</a></li>
-          <!-- <li class="navbar-item"><a class="navbar-link" href="#participants">Participants</a></li> -->
-          <li class="navbar-item"><a class="navbar-link" href="#conduct">Code of conduct</a></li>
-          <li class="navbar-item"><a class="navbar-link" href="#sazerac">What is a Sazerac?</a></li>
+
+          <li class="navbar-item">
+            <a class="navbar-link" href="#" data-popover="#moreNavPopover">About</a>
+            <div id="moreNavPopover" class="popover">
+              <ul class="popover-list">
+                <li class="popover-item">
+                  <a class="popover-link" href="#introduction">Introduction</a>
+                </li>
+                <li class="popover-item">
+                  <a class="popover-link" href="#mailinglist">Mailing List</a>
+                </li>
+                <li class="popover-item">
+                  <a class="popover-link" href="#contact">Contact Us</a>
+                </li>
+                <li class="popover-item">
+                  <a class="popover-link" href="#sazerac">What is a Sazerac?</a>
+                </li>
+              </ul>
+            </div>
+          </li>
+
+
+          <li class="navbar-item">
+            <a class="navbar-link" href="#" data-popover="#summerNavPopover">Summer</a>
+            <div id="summerNavPopover" class="popover">
+              <ul class="popover-list">
+                <li class="popover-item">
+                  <a class="popover-link" href="2020/index.html">Summer 2020</a>
+                </li>
+                <li class="popover-item">
+                  <a class="popover-link" href="2021/index.html">Summer 2021</a>
+                </li>
+              </ul>
+            </div>
+          </li>
+
+          <li class="navbar-item">
+            <a class="navbar-link" href="#" data-popover="#SIPSNavPopover">SIPS</a>
+            <div id="SIPSNavPopover" class="popover">
+              <ul class="popover-list">
+                <li class="popover-item">
+                  <a class="popover-link" href="SIPS/10-20.html">The First Stars (Oct. 2020)</a>
+                </li>
+                <!-- <li class="popover-item">
+                  <a class="popover-link" href="SIPS/10-20.html">Nov. 2020</a>
+                </li> -->
+              </ul>
+            </div>
+          </li>
+
         </ul>
       </div>
     </nav>
 
+
+
     <!-- Header -->
-    <div class="docs-section" id="about">
-      <h1><b>SAZERAC</b></h1>
-      <h3 class="docs-header"><s><b>S</b>teves'</s> <b>S</b>ummer <b>A</b>ll <b>Z</b>oom <b>E</b>poch of <b>R</b>eionization <b>A</b>stronomy <b>C</b>onference</h3>
-      <h4>w/c: 8 June 2020</h4>
-      <!-- <img width="100%" src="images/mugshot.jpg"> -->
+    <div class="docs-section" id="title">
 
-      <p>One consequence of the COVID-19 pandemic is the necessary cancellation of all in-person summer conferences.  This has a variety of negative consequences for everyone, but has a particular impact on junior researchers who have lost the opportunity to present their work during a time in their career when they need to maximize their exposure.</p>
+      <!-- <div class="banner_container">
+        <img src="images/banner.jpg" alt="Artist’s impression of galaxies at the end of the era of reionisation [Credit: ESO/M. Kornmesser]" style="width:100%;">
+        <div class="banner_text">SAZERAC</div>
+      </div> -->
 
-      <p>To bring our community together and give colleagues a forum to advertise their work, we are hosting SAZERAC: the Summer All-Zoom Epoch of Reionization Astronomy.  Participation in SAZERAC will be entirely online via zoom, with all talks recorded and posted on our website for later viewing, and discussion and interaction facilitated via Slack.</p>
-
-      <h6>Goals</h6>
-      <ul>
-        <li>Prioritize talks by junior researchers (finishing graduate students and first term postdocs), giving them the opportunity to advertise their work to a worldwide audience.</li>
-          <li>Take advantage of the additional time to prepare Cycle 1 JWST proposals by learning about the latest results.</li>
-            <li>Bring the community together to share exciting science during these unprecedented times.</li>
-        </ul>
-
-      <h6>Scientific themes</h6>
-
-      <p>Talk sessions at SAZERAC will focus on variety of topics, observational and theoretical, spanning the epoch of reionization (broadly z > 5), including:</p>
-
-      <ul>
-        <li>Evolution of cosmic star formation</li>
-        <li>Physical conditions of galaxy star-forming environments</li>
-        <li>Constraints on reionisation</li>
-        <li>Formation of the first stars and black holes</li>
-        <li>Local analogues of high-redshift galaxies</li>
-        <li>Near-future surveys on the Epoch of Reionisation</li>
-      </ul>
-
-      <h6>SOC</h6>
-      <ul>
-        <li>Caitlin Casey, University of Texas, Austin</li>
-        <li>Anson D'Aloisio, University of California, Riverside</li>
-        <li>Romeel Dáve, University of Edinburgh</li>
-        <li>Xiaohui Fan, University of Arizona</li>
-        <li><b>Steve Finkelstein</b>, University of Texas, Austin (co-chair)</li>
-        <li>Charlotte Mason, Center for Astrophysics, Harvard & Smithsonian</li>
-        <li>Pascal Oesch, University of Geneva</li>
-        <li>Masami Ouchi, University of Tokyo</li>
-        <li>Laura Pentericci, INAF, Osservatorio Astronomico di Roma</li>
-        <li>Renske Smit, Liverpool John Moores University</li>
-        <li>Aprajita Verma, University of Oxford</li>
-        <li><a href="http://www.stephenwilkins.co.uk"><b>Stephen Wilkins</b></a>, University of Sussex (co-chair)</li>
-      </ul>
-
-      <!-- <h6>LOC</h6>
-      <ul>
-        <li><b>Steve Finkelstein</b>, University of Texas, Austin (co-chair)</li>
-        <li>Anne Other, University of Somewhere</li>
-        <li>Anne Other, University of Somewhere</li>
-        <li><b>Stephen Wilkins</b>, University of Sussex</li>
-      </ul> -->
+      <div class='title'>
+        <img style="vertical-align:middle" src="images/circlelogo.png" height="150px">
+        <p>AZERAC</p>
+      </div>
 
     </div>
 
-    <!-- Schedule -->
-    <div class="docs-section" id="schedule">
-      <h5 class="docs-header">Schedule</h5>
-      <p> To overcome timezone and childcare constraints, we will meet for 3.5 hours (two 90 minute sessions and 30 min break) each day over 3-4 days, beginning on 8 June.  These sessions will begin at 1330 UTC (0630/0930 US West/East Coast, 1430 in UK, 2230 in Tokyo).  We will also hold 1-2 sessions (depending on demand) at either 0000 or 0800 UTC. Talks will be 15 minutes long with 5 minutes for live questions. </p>
+<div class="docs-section" id="introduction">
 
-      <p> To faciliate collaboration and discussion we will establish a Slack workspace. There will be separate channels for each session where participants are encouraged to ask and answer questions.</p>
+      <p style="font-size: 15pt"><b>SAZERAC</b> works to support the high-redshift / epoch of reionisation community through the organisation of annual virtual (northern hemisphere) summer meetings, regular specialist session sessions (SIPS), and the maintenance of a community mailing list. Virtually all of the talks were recorded and are available via our our <a href="https://www.youtube.com/channel/UCvrk105bi1U7sMgkEUEneSw">YouTube channel</a>.</p>
+
+      <p style="font-size: 15pt"> You can sign up for the SAZERAC mailing list by mailing <a href="mailto:stevenf@astro.as.utexas.edu">Steve Finkelstein</a>.</p>
+
+</div>
+
+
+<div class="docs-section" id="announcements">
+
+<h4>Announcements</h4>
+
+<h5><b>First SIPS announced</b></h5>
+
+<p>Our first specialist session (SIP) will be <a><b>The First Stars</b></a> held on October XXX. This SIP is led by <a href="mailto:anna.schauer@utexas.edu">Anna Schauer</a>.</p>
+
+
+</div>
+
+  <div class="docs-section" id="history">
+
+    <h4>History</h4>
+
+    <p>SAZERAC (originally the Summer All Zoom Epoch of Reionisaton Astronomy Conference) was founded by Steve Finkelstein and Stephen Wilkins during the COVID-19 pandemic to mitigate the effect of the cancellation of in-person summer conferences, particuarly on early career researchers. </p>
+
+    <p>The first SAZERAC event (SAZERAC2020) was a 4 day long virtual conference held in July 2020. SAZERAC2020 recieved over 500 registrations from more than 30 countries with a peak audience of more than 350. All of the talks were recorded and are available via our website or YouTube channel.</p>
+  </div>
+
+
+
+    <div class="docs-section" id="contact">
+      <h5 class="docs-header">Contact Us</h5>
+      <p>If you need to get in touch with the organisers please email us at <a href="mailto:hello@sazerac-conference.org">hello@sazerac-conference.org</a>.</p>
     </div>
 
-
-    <!-- Abstract Submission -->
-    <div class="docs-section" id="registration">
-      <h5 class="docs-header">Registration</h5>
-
-      <p> Please fill in the form below to register for the meeting. The deadline for registration is <b>Friday May 22nd</b>, and we will endeavor to notify selected speakers no later than <b>1 June</b>.<b>NOTE:</b> Even if you don't intend to give a talk we encourage you to register so you're able to join the live sessions.</p>
-      <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSevHbvWcZKg-gZWM_-q5TZiHnZxV6lh57wiGum9NB5ARyMw6A/viewform?embedded=true" width="640" height="1269" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
-    </div>
-
-
-    <!-- <div class="docs-section" id="participants">
-      <h5 class="docs-header">Participants</h5>
-    </div> -->
-
-    <div class="docs-section" id="conduct">
-      <h5 class="docs-header">Code of Conduct</h5>
-      <p>Coming soon</p>
-    </div>
 
     <!-- Schedule -->
     <div class="docs-section" id="sazerac">
