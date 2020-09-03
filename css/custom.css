@@ -49,6 +49,11 @@ h1 {
   font-size: 100px;
 }
 
+h2 {
+  font-family: 'Quicksand', sans-serif;
+}
+
+
 .social {
   height: 40px;
   padding: 5px;
