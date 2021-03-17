@@ -33,18 +33,33 @@ div.title p {
   font-size: 120px;
   margin: 0 }
 
-  .fixed-top-2 {
-      margin-top: 56px;
-      z-index: 0;
-  }
+.fixed-top-2 {
+    margin-top: 56px;
+    z-index: 0;
+}
 
 
+.wrapper {
+    display: flex;
+    width: 100%;
+}
 
+#sidebar {
+    max-width: 200px;
+    position: fixed;
+    top: 112px;
+    left: 0;
+    height: 100vh;
+    padding: 10px;
+}
 
 
 .red {
     color:red;
 }
+
+
+
 
 
 h1 {
@@ -53,7 +68,7 @@ h1 {
 }
 
 h2 {
-  font-family: 'Quicksand', sans-serif;
+  /* font-family: 'Quicksand', sans-serif; */
 }
 
 

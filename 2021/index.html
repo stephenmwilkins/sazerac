@@ -22,9 +22,6 @@
 
   <!-- CSS
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-
-
-
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 
 <link rel="stylesheet" href="../css/custom.css">
@@ -44,12 +41,6 @@
 <body class="code-snippets-visible">
 
 
-  <!-- Primary Page Layout
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <div class="container" style="max-width: 900px; ">
-
-
-
   <!-- TOP-LEVEL SAZERAC MENU -->
 
   <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
@@ -59,18 +50,6 @@
 
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="../index.html"><b>SAZERAC</b></a>
-        </li>
-
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            HOME
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <a class="dropdown-item" href="../index.html#introduction">Introduction</a>
-            <a class="dropdown-item" href="../index.html#announcements">Announcements</a>
-            <a class="dropdown-item" href="../index.html#history">History</a>
-            <a class="dropdown-item" href="../index.html#sazerac">What is a Sazerac?</a>
-          </div>
         </li>
 
         <li class="nav-item dropdown">
@@ -109,7 +88,7 @@
 
   <!-- SAZERAC 2021 NAVBAR -->
 
-  <nav class="navbar fixed-top fixed-top-2 navbar-expand-lg bg-light">
+  <nav class="navbar fixed-top fixed-top-2 navbar-expand-lg bg-light" style="margin-top: 56px;">
 
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
@@ -117,7 +96,7 @@
           <a class="nav-link active" aria-current="page" href="#"><b>SAZERAC 2.0</b></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">REGISTRATION</a>
+          <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">ABSTRACT SUBMISSION</a>
         </li>
         <li class="nav-item">
           <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">LIVE SCHEDULE</a>
@@ -133,15 +112,32 @@
   </nav>
 
 
+<div class="wrapper">
+    <!-- Sidebar -->
+    <nav id="sidebar">
+      <ul class="nav flex-column">
+        <li class="nav-item">
+          <a class="nav-link active" href="#">Introduction</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#registration">Registration</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#SOC">SOC & LOC</a>
+        </li>
+        <!-- <li class="nav-item">
+          <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+        </li> -->
+      </ul>
+    </nav>
+</div>
 
 
 
 
-
-
-
-
-
+<!-- Primary Page Layout
+–––––––––––––––––––––––––––––––––––––––––––––––––– -->
+<div class="container" style="max-width: 900px; ">
 
 
 
@@ -190,15 +186,27 @@
 
     <p>The format for SAZERAC 2 will broadly be similar to the original.  To overcome timezone and childcare constraints, we will meet for 3.5 hours (two 90 minute sessions and 30 min break) each day over four days, beginning on 14 June.  These sessions will begin at 1330 UTC (0630/0930 US West/East Coast, 1430 in UK, 2230 in Tokyo).  We will hold an additional session at either 0000 or 0800 UTC  (depending on demand). The Slack channel allows discussions to continue across time zones.  Similar to last year, talks by junior researchers will be prioritized, though we will also welcome some talks by more senior researchers.  Finally, we anticipate one session focused on relevant JWST Cycle 1 approved programs.</p>
 
-    <p>To register as a speaker or participant please <a>click here</a>. Registration is limited to ~300 based on zoom constraints, and zoom is required for access to the sessions. The deadline for registration is <b>Friday 30 April</b>, and we will endeavor to notify selected speakers no later than 14 May. </p>
+    <!-- <p>To register as a speaker or participant please <a>click here</a>. Registration is limited to ~300 based on zoom constraints, and zoom is required for access to the sessions. The deadline for registration is <b>Friday 30 April</b>, and we will endeavor to notify selected speakers no later than 14 May. </p> -->
+
+  </div>
+
+  <div class="container" id="registration">
+    <div style="height:20px"></div>
+
+    <h2>REGISTRATION</h2>
+
+    <p>Links providing access to the SAZERAC Zoom and Slack will be distribution via the <a href="../index.html#mailing-list">SAZERAC mailing list</a>. The maximum number of people accomodated by Zoom is 500 and access is provided on a first-come first-served basis. However, the conference will also live stream via our <a href="https://www.youtube.com/channel/UCvrk105bi1U7sMgkEUEneSw">YouTube channel</a>.</p>
+
+    <p>To submit an abstract please <a>click here</a>. The deadline for abstract submission is <b>Friday 30 April</b>, and we will endeavor to notify selected speakers no later than 14 May. </p>
 
   </div>
 
 
   <div class="container" id="SOC">
+    <div style="height:20px"></div>
 
-    <h5>SOC & LOC</h5>
-    <h6>SOC</h6>
+    <h2>SOC & LOC</h2>
+    <h4>SOC</h4>
     <p> The SOC is responsible for defining the objectives and scientific themes of SAZERAC as well as selecting the live talks.</p>
 
     <ul>
