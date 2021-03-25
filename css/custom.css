@@ -46,9 +46,9 @@ div.title p {
 
 #sidebar {
     max-width: 200px;
-    position: fixed;
+    /* position: fixed;
     top: 112px;
-    left: 0;
+    left: 0; */
     height: 100vh;
     padding: 10px;
 }
