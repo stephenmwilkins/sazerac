@@ -1,21 +1,41 @@
 
-
-/* Container holding the image and the text */
-.banner_container {
-  position: relative;
-  text-align: center;
-  color: white;
+html, body {
+  margin:0;
+	padding:0;
 }
 
-/* Centered text */
-.banner_text {
-  position: absolute;
-  top: 50%;
-  left: 1%;
-  transform: translate(0, -50%);
-  color: #FFF;
+
+.sidenav {
+  position: sticky;
+  position: -webkit-sticky;
+  top:0;
+}
+
+.introvid {
+  /* width: auto; */
+  opacity:75%;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  padding: 0px;
+}
+
+.video_wrapper {
+  background-color: #000;
+  padding: 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.video_title_container {
+  position:absolute;
+}
+
+.video_title {
   font-family: 'Vidaloka', serif;
-  font-size: 100px;
+  font-size: 200px;
+  color:#FFF;
 }
 
 
@@ -33,30 +53,13 @@ div.title p {
   font-size: 120px;
   margin: 0 }
 
-.fixed-top-2 {
-    margin-top: 56px;
-    z-index: 0;
-}
-
 
 .wrapper {
     display: flex;
     width: 100%;
 }
 
-#sidebar {
-    max-width: 200px;
-    /* position: fixed;
-    top: 112px;
-    left: 0; */
-    height: 100vh;
-    padding: 10px;
-}
 
-
-.red {
-    color:red;
-}
 
 
 
