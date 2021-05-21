@@ -1,0 +1,75 @@
+td {
+  padding:5px;
+  min-width: 150px;
+}
+
+tr {
+  cursor: pointer;
+}
+
+tr:hover {
+    background-color: #F5F5F5;
+}
+
+tr:hover td {
+    background-color: transparent; /* or #000 */
+}
+
+
+.tooltipc {
+  position: relative;
+  color: #000;
+}
+
+.tooltipc .tooltiptextc {
+  visibility: hidden;
+  background-color: #F5F5F5;
+  color: #333;
+  border: solid 1px;
+  border-color: #555;
+  padding: 10px;
+
+  width: 600px;
+
+
+  top: 100%;
+  left: 50px;
+  margin-left: 0px;
+
+  /* top: -5px;
+  left: 100%; */
+
+  text-align:left;
+
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 1;
+}
+
+.tooltipc:hover .tooltiptextc {
+  visibility: visible;
+}
+
+
+
+
+
+.tag {
+  list-style-type: none;
+  margin: 0 0 0px 0;
+  padding: 0;
+  font-size: 12pt;
+    /* display: inline-block;
+    text-align: left;
+    font-size: 10pt; */
+}
+
+#tag_list_div {
+  width: 100%;
+  column-count: 3;
+}
+
+#session_list_div {
+  width: 100%;
+  column-count: 6;
+}
