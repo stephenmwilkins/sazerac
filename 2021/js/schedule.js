@@ -151,7 +151,7 @@ function showInfo() {
       var inc = false;
 
       var talk_tags = d['Tags'].split(",");
-      var recorded = d['Recorded'];
+      var recorded = d['Pre-recorded'];
       var session = parseInt(d['Session'][0]);
       var talk = parseInt(d['Talk']);
 
@@ -185,7 +185,7 @@ function showInfo() {
           time_list = '';
 
           for (var k=0; k<time_zones.length; k++) {
-            time = parseInt(d['Time'])+offsets[k]*100;
+            time = parseInt(d['Time (UTC)'])+offsets[k]*100;
             if (time>=2400) {
               time = time - 2400;
               time = pad(time, 4)+'+1';
@@ -201,7 +201,7 @@ function showInfo() {
           abstract = abstract.replace(/>/g, "&gt;");
 
           var tabCell = tr.insertCell(-1);
-          tabCell.innerHTML = '<div class="tooltipc"><b>'+d['Session']+'/'+d['Talk']+'</b> '+d['Date']+' '+d['Time']+'<span class="tooltiptextc" style="width:100px;">'+time_list+'</span></div>';
+          tabCell.innerHTML = '<div class="tooltipc"><b>'+d['Session']+'/'+d['Talk']+'</b> '+d['Date']+' '+d['Time (UTC)']+'<span class="tooltiptextc" style="width:100px;">'+time_list+'</span></div>';
 
           var tabCell = tr.insertCell(-1);
           tabCell.innerHTML = '<div class="tooltipc"><b>'+d['First Name']+' '+d['Family Name']+ '</b><span class="tooltiptextc" style="width:300px;">'+ d['Institution']+'<br><a href="mailto:'+d['Email']+'">'+d['Email']+'</a></span></div>';
