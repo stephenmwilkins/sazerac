@@ -169,7 +169,7 @@ function showInfo() {
             tr = table.insertRow(-1);
             var tabCell = tr.insertCell(-1);
             tabCell.colSpan = 3;
-            tabCell.innerHTML = '<span style="font-size:25pt;color:#888;"><b>SESSION '+session+'</b></span>';
+            tabCell.innerHTML = '<div id="session'+session+'"><br><br><span style="font-size:25pt;color:#888;"><b>SESSION '+session+'</b></span></div>';
           } else {
             if (talk==1 && previous_talk==6) {
               tr = table.insertRow(-1);
