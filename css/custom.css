@@ -20,6 +20,16 @@ html, body {
   padding: 0px;
 }
 
+
+.title_container {
+  background-color: #000;
+  padding: 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
 .video_wrapper {
   background-color: #000;
   padding: 0px;
@@ -38,6 +48,14 @@ html, body {
   color:#FFF;
 }
 
+
+.image_overlay {
+  opacity:40%;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  padding: 0px;
+}
 
 .title {
   font-family: 'Vidaloka', serif;
